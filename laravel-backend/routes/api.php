@@ -10,3 +10,19 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/register', [AuthController::class, 'register']);
 
+
+Route::middleware(['auth:sanctum', 'role:admin,user'])->group(function () {
+
+    // Route::get('/profile', []);
+});
+
+Route::middleware(['auth:sanctum', 'role:user'])->group(function () {
+
+
+});
+
+Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
+
+
+});
+
